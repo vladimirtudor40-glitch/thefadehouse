@@ -30,6 +30,10 @@ de pe Google (vezi comentariile din fișier).
 
 Fiecare push pe `main` declanșează workflow-ul [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), care face
 build și publică site-ul pe branch-ul `gh-pages`. Site-ul live se actualizează în 1–2 minute.
+Pentru pull request-uri rulează doar verificarea de tipuri și build-ul.
+
+Adresa publică a site-ului (`SITE_URL`, folosită pentru sitemap, robots și imaginea de share) este tot în
+[`data/barbershopData.ts`](data/barbershopData.ts).
 
 ## Comenzi
 
