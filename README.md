@@ -26,11 +26,16 @@ Toate textele, prețurile, programul, numărul de WhatsApp (`WHATSAPP_NUMBER`), 
 **Înainte de lansare:** confirmați prețurile marcate ca propuneri și înlocuiți cardurile de recenzii cu recenzii reale
 de pe Google (vezi comentariile din fișier).
 
+## Publicare automată
+
+Fiecare push pe `main` declanșează workflow-ul [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml), care face
+build și publică site-ul pe branch-ul `gh-pages`. Site-ul live se actualizează în 1–2 minute.
+
 ## Comenzi
 
 ```bash
 npm install
 npm run dev      # http://localhost:3000
 npm run build    # export static în ./out
-npm run deploy   # build + publicare pe GitHub Pages (branch gh-pages)
+npm run deploy   # publicare manuală (nu mai e necesară, o face GitHub Actions)
 ```
