@@ -1,4 +1,4 @@
-:HL["/thefadehouse/_next/static/chunks/3pgpsx_oyftg6.css","style"]
+:HL["/thefadehouse/_next/static/chunks/0mgd4etkm0-w2.css","style"]
 :HL["/thefadehouse/_next/static/media/0926c12c4384550f-s.p.1-qpv3jvnkkyl.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/thefadehouse/_next/static/media/0c795a286deabae8-s.p.3vm0tq4e-zz_5.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/thefadehouse/_next/static/media/1a099d89ee94ee96-s.p.35a5cae5tspm2.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
@@ -9,4 +9,4 @@
 :HL["/thefadehouse/_next/static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/thefadehouse/_next/static/chunks/0n8kzvw2z_6as.css","style"]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"_kx2ouBseo2TnuWl2EVfr","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"El65vOQeo7_6KuoaijXPr","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
