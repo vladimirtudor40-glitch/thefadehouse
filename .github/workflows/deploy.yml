@@ -1,16 +1,18 @@
 # Builds the static export and publishes it to the gh-pages branch on every push to main.
+# Pull requests only run the type check and the build.
 name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,9 +28,12 @@ jobs:
 
       - run: npm ci
 
+      - run: npm run typecheck
+
       - run: npm run build
 
-      - uses: peaceiris/actions-gh-pages@v4
+      - if: github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out

@@ -64,6 +64,9 @@ export const unsplash = (id: string, width = 1400) =>
 // Brand & contact
 // ---------------------------------------------------------------------------
 
+/** Public address of the site, without a trailing slash. Change it here if a custom domain is added. */
+export const SITE_URL = "https://vladimirtudor40-glitch.github.io/thefadehouse";
+
 /** WhatsApp number in international format, digits only. Change it here once. */
 export const WHATSAPP_NUMBER = "40749217944";
 

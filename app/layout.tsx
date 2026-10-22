@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, JetBrains_Mono, Plus_Jakarta_Sans, Syne } from "next/font/google";
 import { Providers } from "@/components/Providers";
-import { brand } from "@/data/barbershopData";
+import { SITE_URL, brand } from "@/data/barbershopData";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
@@ -31,12 +31,16 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(`${SITE_URL}/`),
   title: `${brand.name} — Frizerie Premium în Constanța`,
   description:
     "Skin fade, taper, contur de barbă cu briciul și pachete complete în centrul Constanței. 5.0 pe Google din peste 750 de recenzii. Programări pe WhatsApp: 0749 217 944.",
   openGraph: {
     title: `${brand.name} — Frizerie Premium în Constanța`,
     description: "Arta tunsorii perfecte în inima Constanței. Strada Constantin Brătescu 45.",
+    url: `${SITE_URL}/`,
+    siteName: brand.name,
+    images: [{ url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: brand.name }],
     locale: "ro_RO",
     type: "website",
   },
