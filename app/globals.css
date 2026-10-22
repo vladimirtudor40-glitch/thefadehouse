@@ -1,0 +1,263 @@
+@import "tailwindcss";
+
+/*
+ * "Onyx, Alabaster & Brushed Gold" — desaturated dark luxury.
+ *   onyx      → page background
+ *   obsidian  → cards / secondary surfaces
+ *   elevated  → hover + raised surfaces
+ *   alabaster → primary text
+ *   muted     → secondary text
+ *   gold      → accent (CTAs, highlights, numbers)
+ *   amber     → warm secondary accent / glows
+ */
+@theme {
+  --color-onyx: #0a0a0b;
+  --color-obsidian: #121214;
+  --color-elevated: #1a1a1e;
+  --color-alabaster: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-gold: #d4af37;
+  --color-gold-light: #e5c158;
+  --color-amber: #c59b27;
+  --color-line: rgb(255 255 255 / 0.07);
+  --color-line-gold: rgb(212 175 55 / 0.25);
+  --color-open: #4ade80;
+
+  --font-display: var(--font-syne), "Arial Black", sans-serif;
+  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --shadow-gold: 0 0 0 1px rgb(212 175 55 / 0.35), 0 18px 40px -18px rgb(212 175 55 / 0.55);
+  --shadow-deep: 0 30px 60px -30px rgb(0 0 0 / 0.9);
+
+  --ease-luxury: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-ken-burns: ken-burns 22s ease-in-out infinite alternate;
+  --animate-marquee: marquee var(--marquee-duration, 60s) linear infinite;
+  --animate-shimmer: shimmer 4s linear infinite;
+  --animate-pulse-ring: pulse-ring 2s var(--ease-luxury) infinite;
+
+  @keyframes ken-burns {
+    from {
+      transform: scale(1.04) translate3d(0, 0, 0);
+    }
+    to {
+      transform: scale(1.16) translate3d(-1.5%, -1%, 0);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+  @keyframes shimmer {
+    to {
+      --shimmer-angle: 360deg;
+    }
+  }
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(2.6);
+      opacity: 0;
+    }
+  }
+}
+
+@property --shimmer-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-onyx font-sans text-alabaster antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-gold text-onyx;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-gold;
+  }
+
+  button,
+  [role="tab"],
+  a {
+    cursor: pointer;
+  }
+
+  /* The custom cursor replaces the native one on fine pointers only. */
+  html.has-custom-cursor,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button,
+  html.has-custom-cursor [role="tab"] {
+    cursor: none;
+  }
+}
+
+@utility container-lux {
+  @apply mx-auto w-full max-w-[1320px] px-5 sm:px-8 lg:px-12 2xl:max-w-[1480px];
+}
+
+@utility eyebrow {
+  @apply inline-flex items-center gap-3 font-mono text-[11px] font-medium tracking-[0.28em] text-gold uppercase;
+}
+
+@utility btn {
+  @apply relative inline-flex min-h-12 items-center justify-center gap-2.5 overflow-hidden rounded-full px-6 font-sans text-[13px] font-semibold tracking-[0.14em] whitespace-nowrap uppercase transition-[background-color,color,border-color,box-shadow] duration-300 ease-(--ease-luxury) sm:px-7;
+}
+
+@utility btn-gold {
+  @apply btn bg-gold text-onyx hover:bg-gold-light;
+  box-shadow: var(--shadow-gold);
+}
+
+@utility btn-ghost {
+  @apply btn border border-white/15 text-alabaster hover:border-gold/60 hover:bg-white/[0.03] hover:text-gold-light;
+}
+
+@utility glass {
+  @apply border border-line bg-onyx/80 backdrop-blur-md;
+}
+
+@utility card {
+  @apply rounded-3xl border border-line bg-obsidian;
+}
+
+/* Rotating gold sweep around a pill — wrap content in an inner element with its own background. */
+@utility shimmer-border {
+  background: conic-gradient(
+    from var(--shimmer-angle),
+    rgb(212 175 55 / 0.15) 0deg,
+    rgb(229 193 88 / 0.95) 60deg,
+    rgb(212 175 55 / 0.15) 140deg,
+    rgb(212 175 55 / 0.15) 360deg
+  );
+  animation: var(--animate-shimmer);
+}
+
+/* Dotted gold leader line between a service and its price. */
+@utility leader {
+  background-image: radial-gradient(circle, rgb(212 175 55 / 0.45) 1px, transparent 1.4px);
+  background-size: 8px 4px;
+  background-repeat: repeat-x;
+  background-position: left center;
+}
+
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(244 244 245 / 0.22);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Fixed film grain across the whole viewport. */
+.grain {
+  position: fixed;
+  inset: -50%;
+  z-index: 200;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+/* Leaflet: dark chrome to match the map tiles. */
+.leaflet-container {
+  background: var(--color-obsidian);
+  font-family: var(--font-sans);
+}
+.fade-map-base {
+  filter: brightness(0.5) contrast(1.2) saturate(0);
+}
+.leaflet-control-attribution {
+  background: rgb(10 10 11 / 0.75) !important;
+  color: var(--color-muted) !important;
+  font-size: 10px;
+}
+.leaflet-control-attribution a {
+  color: var(--color-gold) !important;
+}
+.leaflet-bar a {
+  background: var(--color-elevated) !important;
+  color: var(--color-alabaster) !important;
+  border-color: var(--color-line) !important;
+}
+.leaflet-tooltip.fade-tooltip {
+  background: var(--color-onyx);
+  border: 1px solid rgb(212 175 55 / 0.45);
+  border-radius: 9999px;
+  color: var(--color-alabaster);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.8);
+}
+.leaflet-tooltip.fade-tooltip::before {
+  border-top-color: rgb(212 175 55 / 0.45);
+}
+.fade-marker {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.fade-marker__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  border: 3px solid var(--color-onyx);
+  box-shadow: 0 0 0 1px var(--color-gold);
+}
+.fade-marker__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgb(212 175 55 / 0.55);
+  animation: var(--animate-pulse-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
