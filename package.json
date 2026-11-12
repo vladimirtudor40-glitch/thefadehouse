@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cloudflare": "BASE_PATH= next build && node scripts/fix-export-segments.mjs",
+    "deploy:cloudflare": "wrangler deploy",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "postbuild": "node scripts/fix-export-segments.mjs",

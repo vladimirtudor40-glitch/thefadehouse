@@ -1,0 +1,13 @@
+// Static site on Cloudflare at https://fadehouse.twopixeldev.com
+// Build first with `npm run build:cloudflare` (no /thefadehouse base path), then `npx wrangler deploy`.
+{
+  "name": "fadehouse",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "workers_dev": false,
+  "routes": [{ "pattern": "fadehouse.twopixeldev.com", "custom_domain": true }]
+}

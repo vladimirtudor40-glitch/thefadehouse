@@ -3,7 +3,7 @@
 Site de prezentare și programări pentru **The Fade House - Barbershop**, frizerie premium din Constanța
 (Strada Constantin Brătescu 45).
 
-**Live:** https://vladimirtudor40-glitch.github.io/thefadehouse/
+**Live:** https://fadehouse.twopixeldev.com/ (Cloudflare) · copie pe GitHub Pages: https://vladimirtudor40-glitch.github.io/thefadehouse/
 
 ## Ce conține
 
@@ -42,4 +42,14 @@ npm install
 npm run dev      # http://localhost:3000
 npm run build    # export static în ./out
 npm run deploy   # publicare manuală (nu mai e necesară, o face GitHub Actions)
+```
+
+## Publicare pe fadehouse.twopixeldev.com (Cloudflare)
+
+Adresa principală e servită de Worker-ul Cloudflare `fadehouse` (config în [`wrangler.jsonc`](wrangler.jsonc), fișiere statice din
+`./out`). Se construiește fără calea `/thefadehouse`:
+
+```bash
+npm run build:cloudflare        # macOS/Linux; pe Windows (PowerShell): $env:BASE_PATH=""; npx next build; node scripts/fix-export-segments.mjs
+npx wrangler deploy
 ```
