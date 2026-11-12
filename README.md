@@ -46,7 +46,7 @@ npm run deploy   # publicare manuală (nu mai e necesară, o face GitHub Actions
 
 ## Publicare pe thefadehouse.twopixeldev.com (Cloudflare)
 
-Adresa principală e servită de Worker-ul Cloudflare `fadehouse` (config în [`wrangler.jsonc`](wrangler.jsonc), fișiere statice din
+Adresa principală e servită de Worker-ul Cloudflare `thefadehouse` (config în [`wrangler.jsonc`](wrangler.jsonc), fișiere statice din
 `./out`). Se construiește fără calea `/thefadehouse`:
 
 ```bash

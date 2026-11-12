@@ -1,20 +1,13 @@
 // Static site on Cloudflare at https://thefadehouse.twopixeldev.com
-// (the old address fadehouse.twopixeldev.com redirects there, see worker/index.js).
 // Build first with `npm run build:cloudflare` (no /thefadehouse base path), then `npx wrangler deploy`.
 {
-  "name": "fadehouse",
-  "main": "worker/index.js",
+  "name": "thefadehouse",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./out",
-    "binding": "ASSETS",
-    "run_worker_first": true,
     "not_found_handling": "404-page",
     "html_handling": "auto-trailing-slash"
   },
   "workers_dev": false,
-  "routes": [
-    { "pattern": "thefadehouse.twopixeldev.com", "custom_domain": true },
-    { "pattern": "fadehouse.twopixeldev.com", "custom_domain": true }
-  ]
+  "routes": [{ "pattern": "thefadehouse.twopixeldev.com", "custom_domain": true }]
 }
