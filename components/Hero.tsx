@@ -135,7 +135,7 @@ export function Hero() {
             onClick={() => scrollTo("#filozofie")}
             className="inline-flex items-center gap-2 text-alabaster/80 transition-colors hover:text-gold"
           >
-            Scroll
+            Derulează
             <ArrowDown size={14} className="animate-bounce" aria-hidden="true" />
           </button>
         </div>

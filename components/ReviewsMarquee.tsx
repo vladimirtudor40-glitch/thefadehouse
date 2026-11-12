@@ -86,7 +86,7 @@ export function ReviewsMarquee() {
       <div className="container-lux">
         <SectionHeading
           index="04"
-          eyebrow="Social proof"
+          eyebrow="Recenzii"
           align="center"
           title={
             <>

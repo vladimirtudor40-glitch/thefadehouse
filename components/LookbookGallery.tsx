@@ -133,7 +133,7 @@ export function LookbookGallery() {
         <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
             index="03"
-            eyebrow="The Craft · Lookbook"
+            eyebrow="Lucrările noastre"
             title={
               <>
                 Precizie, <Accent>din orice unghi.</Accent>

@@ -73,7 +73,7 @@ export const WHATSAPP_NUMBER = "40749217944";
 export const brand = {
   name: "The Fade House - Barbershop",
   shortName: "The Fade House",
-  tagline: "Precision Cuts. Timeless Craft. The Gold Standard of Grooming in Constanța.",
+  tagline: "Tunsori precise. Meșteșug clasic. Standardul de aur în îngrijirea masculină din Constanța.",
   whatsappNumber: WHATSAPP_NUMBER,
   phoneDisplay: "0749 217 944",
   phoneHref: "tel:+40749217944",

@@ -77,7 +77,7 @@ export function Preloader() {
             <div className="pl-bar h-full origin-left scale-x-0 bg-gold" />
           </div>
           <div className="flex justify-between font-mono text-xs text-muted">
-            <span>LOADING</span>
+            <span>SE ÎNCARCĂ</span>
             <span className="text-gold">
               <span ref={counterRef}>000</span>%
             </span>
