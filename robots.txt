@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://vladimirtudor40-glitch.github.io/thefadehouse/sitemap.xml
+Sitemap: https://fadehouse.twopixeldev.com/sitemap.xml
