@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://fadehouse.twopixeldev.com/sitemap.xml
+Sitemap: https://thefadehouse.twopixeldev.com/sitemap.xml
